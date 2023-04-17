@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1098516052849",
+    "project_id": "robouniver",
+    "storage_bucket": "robouniver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098516052849:android:1bb8c489a91def6fd1d4d0",
+        "android_client_info": {
+          "package_name": "com.halmg.robouniver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098516052849-qfrluliekjt21401q08cdiahnbehgvp9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrNO1KWyOgzrf7qW-CiN9Btcj8-WjMJZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098516052849-qfrluliekjt21401q08cdiahnbehgvp9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
