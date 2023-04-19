@@ -3,6 +3,8 @@ package com.halmg.robouniver
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -22,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
         auth = Firebase.auth
         login = findViewById(R.id.email_login)
         password = findViewById(R.id.password_login)
@@ -37,18 +40,20 @@ class LoginActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                     else {
-                        Toast.makeText(applicationContext, "Добро пожаловать", Toast.LENGTH_SHORT)
-                            .show()
+                        //Toast.makeText(applicationContext, "Добро пожаловать", Toast.LENGTH_SHORT)
+                            //.show()
                         updateUI()
                     }
                 }
             }
         }
     }
-        fun updateUI() {
-            val user = auth.currentUser
-            var intent = Intent(this@LoginActivity, MainActivity::class.java)
-            intent.putExtra("user", user!!.email)
-            startActivity(intent)
-        }
+
+    fun updateUI() {
+        //val user = auth.currentUser
+        var intent = Intent(this, MainActivity::class.java)
+        //intent.putExtra("user", user!!.email)
+        startActivity(intent)
+    }
+
 }
