@@ -8,17 +8,21 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.halmg.robouniver.ui.home.HomeFragment"
-        tools:layout="@layout/fragment_manual" />
+        tools:layout="@layout/fragment_manual"
+        android:label="@string/home"/>
     <fragment
         android:id="@+id/navigation_journal"
         android:name="com.halmg.robouniver.ui.journal.JournalFragment"
-        tools:layout="@layout/fragment_manual" />
+        tools:layout="@layout/fragment_manual"
+        android:label="@string/journal"/>
     <fragment
         android:id="@+id/navigation_homework"
         android:name="com.halmg.robouniver.ui.homework.HomeworkFragment"
-        tools:layout="@layout/fragment_manual" />
+        tools:layout="@layout/fragment_manual"
+        android:label="@string/homework"/>
     <fragment
         android:id="@+id/navigation_report"
         android:name="com.halmg.robouniver.ui.report.ReportFragment"
-        tools:layout="@layout/fragment_manual" />
+        tools:layout="@layout/fragment_manual"
+        android:label="@string/report"/>
 </navigation>
