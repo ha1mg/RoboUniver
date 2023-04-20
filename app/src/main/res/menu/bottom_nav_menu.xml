@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/house"
+        android:title="Главная" />
+    <item
+        android:id="@+id/navigation_journal"
+        android:icon="@drawable/magazine"
+        android:title="Журнал" />
+    <item
+        android:id="@+id/navigation_homework"
+        android:icon="@drawable/books"
+        android:title="ДЗ" />
+    <item
+        android:id="@+id/navigation_report"
+        android:icon="@drawable/wallet"
+        android:title="Отчетность" />
+</menu>
