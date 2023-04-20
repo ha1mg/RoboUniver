@@ -1,4 +1,4 @@
-package com.halmg.robouniver.ui.manual
+package com.halmg.robouniver.ui.home.manual
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

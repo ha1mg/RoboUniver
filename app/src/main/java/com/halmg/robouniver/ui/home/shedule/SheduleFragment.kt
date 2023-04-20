@@ -1,4 +1,4 @@
-package com.halmg.robouniver.ui.home
+package com.halmg.robouniver.ui.home.shedule
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,11 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import com.halmg.robouniver.R
 import com.halmg.robouniver.databinding.FragmentHomeBinding
+import com.halmg.robouniver.ui.home.HomeViewModel
 
-class HomeFragment : Fragment() {
+class SheduleFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
 
@@ -41,5 +41,4 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }
