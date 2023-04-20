@@ -2,4 +2,10 @@
     <string name="app_name">RoboUniver</string>
     <!-- Strings used for fragments for navigation -->
 
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="report">Отчёты</string>
+    <string name="homework">Домашнее задание</string>
+    <string name="journal">Журнал</string>
+    <string name="home">Главная</string>
 </resources>

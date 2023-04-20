@@ -1,12 +1,12 @@
-package com.halmg.robouniver.ui.home
+package com.halmg.robouniver.ui.manual
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class ManualViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Здсь будет какой-то текст"
     }
     val text: LiveData<String> = _text
 }

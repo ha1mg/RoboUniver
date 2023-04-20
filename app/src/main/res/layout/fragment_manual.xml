@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.manual.ManualFragment">
+    tools:context=".ui.manual.ManualFragment">
 
     <!--    <androidx.appcompat.widget.Toolbar-->
     <!--        android:id="@+id/toolbar"-->
@@ -39,6 +39,7 @@
     <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar" -->
 
     <TextView
+        android:id="@+id/text_manual"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
