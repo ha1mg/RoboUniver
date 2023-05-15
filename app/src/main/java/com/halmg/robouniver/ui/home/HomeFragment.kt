@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.navigation.findNavController
 import com.halmg.robouniver.R
 import com.halmg.robouniver.databinding.FragmentHomeBinding
 
@@ -23,17 +25,40 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val headerV: TextView = binding.headerHome
+        homeViewModel.header.observe(viewLifecycleOwner) {
+            headerV.text = it
+        }
+        val textV: TextView = binding.textHome
+        homeViewModel.text.observe(viewLifecycleOwner) {
+            textV.text = it
+        }
 
-//        val textView: TextView = binding.textDashboard
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        val layoutShedule: LinearLayout = binding.layoutShedule
+        layoutShedule.setOnClickListener { v ->
+            v.findNavController().navigate(R.id.action_navigation_home_to_sheduleFragment)
+        }
+
+        val layoutManual: LinearLayout = binding.layoutManual
+        layoutManual.setOnClickListener { v ->
+            v.findNavController().navigate(R.id.action_navigation_home_to_manualFragment)
+        }
+
+        val layoutVenue: LinearLayout = binding.layoutVenue
+        layoutVenue.setOnClickListener { v ->
+            v.findNavController().navigate(R.id.action_navigation_home_to_venueFragment)
+        }
+
+        val layoutWages: LinearLayout = binding.layoutWages
+        layoutWages.setOnClickListener { v ->
+            v.findNavController().navigate(R.id.action_navigation_home_to_wagesFragment)
+        }
+
         return root
     }
 

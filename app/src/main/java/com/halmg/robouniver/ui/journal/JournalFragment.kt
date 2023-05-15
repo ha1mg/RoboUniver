@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.halmg.robouniver.databinding.FragmentJournalBinding
 
 class JournalFragment : Fragment() {
@@ -17,6 +19,7 @@ class JournalFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private lateinit var recyclerView: RecyclerView
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -28,10 +31,13 @@ class JournalFragment : Fragment() {
         _binding = FragmentJournalBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textJournal
-        journalViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
+//        val textView: TextView = binding.textJournal
+//        journalViewModel.text.observe(viewLifecycleOwner) {
+//            textView.text = it
+//        }
+        recyclerView = binding.recyclerJournal
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+
         return root
     }
 

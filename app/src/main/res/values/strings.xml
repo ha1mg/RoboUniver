@@ -8,4 +8,5 @@
     <string name="homework">Домашнее задание</string>
     <string name="journal">Журнал</string>
     <string name="home">Главная</string>
+    <string name="student_name">Фамилия Имя Отчество</string>
 </resources>

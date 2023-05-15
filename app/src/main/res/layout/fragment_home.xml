@@ -8,7 +8,7 @@
     tools:context=".ui.home.HomeFragment">
 
     <TextView
-        android:id="@+id/header_homework"
+        android:id="@+id/header_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_homework"
+        android:id="@+id/text_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -37,10 +37,10 @@
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_homework" />
+        app:layout_constraintTop_toBottomOf="@+id/header_home" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/layoutShedule"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -51,7 +51,7 @@
         android:paddingVertical="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_homework">
+        app:layout_constraintTop_toBottomOf="@+id/text_home">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -66,7 +66,7 @@
                 android:textColor="#001d48"
                 android:textSize="18sp"
                 android:textStyle="normal"
-                tools:text="Открыть расписание" />
+                android:text="Открыть расписание" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -75,7 +75,7 @@
                 android:textColor="#001d48"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                tools:text="Узнать расписание занятий" />
+                android:text="Узнать расписание занятий" />
         </LinearLayout>
 
         <ImageView
@@ -85,7 +85,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/layoutManual"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -96,7 +96,7 @@
         android:paddingVertical="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/layoutShedule">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -111,7 +111,7 @@
                 android:textColor="#001d48"
                 android:textSize="18sp"
                 android:textStyle="normal"
-                tools:text="Открыть методические указания" />
+                android:text="Открыть методические указания" />
 
             <TextView
                 android:id="@+id/text2"
@@ -121,7 +121,7 @@
                 android:textColor="#001d48"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                tools:text="Посмотреть описание занятий и приложенные к ним файлы" />
+                android:text="Посмотреть описание занятий и приложенные к ним файлы" />
         </LinearLayout>
 
         <ImageView
@@ -131,7 +131,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/layoutVenue"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -142,7 +142,7 @@
         android:paddingVertical="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/layoutManual">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -157,7 +157,7 @@
                 android:textColor="#001d48"
                 android:textSize="18sp"
                 android:textStyle="normal"
-                tools:text="Информация о площадках" />
+                android:text="Информация о площадках" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -166,7 +166,7 @@
                 android:textColor="#001d48"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                tools:text="Узнать адрес площадки и ее особенности" />
+                android:text="Узнать адрес площадки и ее особенности" />
         </LinearLayout>
 
         <ImageView
@@ -176,6 +176,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layoutWages"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -186,7 +187,8 @@
         android:paddingVertical="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintTop_toBottomOf="@+id/layoutVenue"
+        >
 
         <LinearLayout
             android:layout_width="0dp"
@@ -201,7 +203,7 @@
                 android:textColor="#001d48"
                 android:textSize="18sp"
                 android:textStyle="normal"
-                tools:text="Заработная плата" />
+                android:text="Заработная плата" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -210,7 +212,7 @@
                 android:textColor="#001d48"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                tools:text="Сформировать отчет по заработной плате по месяцам" />
+                android:text="Сформировать отчет по заработной плате по месяцам" />
         </LinearLayout>
 
         <ImageView

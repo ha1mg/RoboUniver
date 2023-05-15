@@ -9,7 +9,20 @@
         android:id="@+id/navigation_home"
         android:name="com.halmg.robouniver.ui.home.HomeFragment"
         tools:layout="@layout/fragment_manual"
-        android:label="@string/home"/>
+        android:label="@string/home">
+        <action
+            android:id="@+id/action_navigation_home_to_manualFragment"
+            app:destination="@id/manualFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_sheduleFragment"
+            app:destination="@id/sheduleFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_venueFragment"
+            app:destination="@id/venueFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_wagesFragment"
+            app:destination="@id/wagesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_journal"
         android:name="com.halmg.robouniver.ui.journal.JournalFragment"
@@ -25,4 +38,23 @@
         android:name="com.halmg.robouniver.ui.report.ReportFragment"
         tools:layout="@layout/fragment_manual"
         android:label="@string/report"/>
+    <fragment
+        android:id="@+id/manualFragment"
+        android:name="com.halmg.robouniver.ui.home.manual.ManualFragment"
+        android:label="ManualFragment" />
+    <fragment
+        android:id="@+id/sheduleFragment"
+        android:name="com.halmg.robouniver.ui.home.shedule.SheduleFragment"
+        android:label="fragment_shedule"
+        tools:layout="@layout/fragment_shedule" />
+    <fragment
+        android:id="@+id/venueFragment"
+        android:name="com.halmg.robouniver.ui.home.venue.VenueFragment"
+        android:label="fragment_venue"
+        tools:layout="@layout/fragment_venue" />
+    <fragment
+        android:id="@+id/wagesFragment"
+        android:name="com.halmg.robouniver.ui.home.wages.WagesFragment"
+        android:label="fragment_wages"
+        tools:layout="@layout/fragment_wages" />
 </navigation>
