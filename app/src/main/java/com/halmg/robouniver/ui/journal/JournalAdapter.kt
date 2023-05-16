@@ -13,7 +13,7 @@ class JournalAdapter(val list: List<Student>) : RecyclerView.Adapter<JournalAdap
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val myItem = LayoutInflater.from(parent.context).inflate(R.layout.schedule_item, parent, false)
+        val myItem = LayoutInflater.from(parent.context).inflate(R.layout.journal_item, parent, false)
         return  MyViewHolder(myItem)
     }
 

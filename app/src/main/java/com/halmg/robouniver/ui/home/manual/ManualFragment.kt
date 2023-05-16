@@ -23,7 +23,7 @@ class ManualFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val manualViewModel =
-            ViewModelProvider(this).get(ManualViewModel::class.java)
+            ViewModelProvider(this)[ManualViewModel::class.java]
 
         _binding = FragmentManualBinding.inflate(inflater, container, false)
         val root: View = binding.root

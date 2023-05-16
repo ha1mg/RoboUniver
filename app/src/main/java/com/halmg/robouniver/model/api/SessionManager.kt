@@ -12,16 +12,38 @@ class SessionManager (context: Context) {
         .getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
 
     companion object {
-        const val USER_TOKEN = "user_token"
+        const val TEACHER_TOKEN = "user_token"
+        const val TEACHER_NAME = "teacher_name"
+        const val TEACHER_ID = "teacher_id"
     }
 
     fun saveAuthToken(token: String) {
         val editor = prefs.edit()
-        editor.putString(USER_TOKEN, token)
+        editor.putString(TEACHER_TOKEN, token)
         editor.apply()
     }
 
     fun fetchAuthToken(): String? {
-        return prefs.getString(USER_TOKEN, null)
+        return prefs.getString(TEACHER_TOKEN, null)
+    }
+
+    fun saveTeacherName(name: String) {
+        val editor = prefs.edit()
+        editor.putString(TEACHER_NAME, name)
+        editor.apply()
+    }
+
+    fun fetchTeacherName(): String? {
+        return prefs.getString(TEACHER_NAME, null)
+    }
+
+    fun saveTeacherId(id: Int) {
+        val editor = prefs.edit()
+        editor.putInt(TEACHER_ID, id)
+        editor.apply()
+    }
+
+    fun fetchTeacherId(): Int {
+        return prefs.getInt(TEACHER_ID, -1)
     }
 }

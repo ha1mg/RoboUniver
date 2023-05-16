@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.halmg.robouniver.R
 import com.halmg.robouniver.databinding.FragmentHomeBinding
-import com.halmg.robouniver.ui.home.HomeViewModel
+import com.halmg.robouniver.ui.home.shedule.SheduleViewModel
 
 class SheduleFragment : Fragment() {
 
@@ -23,7 +23,7 @@ class SheduleFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+        val sheduleViewModel = ViewModelProvider(this)[SheduleViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root

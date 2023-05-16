@@ -6,21 +6,22 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ApiClient {
-    private lateinit var authController: ApiController
+    private lateinit var apiController: ApiController
 
-    fun getAuthController(): ApiController {
+    fun getApiService(context: Context): ApiController {
 
         // Initialize ApiService if not initialized yet
-        if (!::authController.isInitialized) {
+        if (!::apiController.isInitialized) {
             val retrofit = Retrofit.Builder()
                 .baseUrl("http://192.168.0.102:8080")
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(okhttpClient(context))
                 .build()
 
-            authController = retrofit.create(ApiController::class.java)
+            apiController = retrofit.create(ApiController::class.java)
         }
 
-        return authController
+        return apiController
     }
 
     private fun okhttpClient(context: Context): OkHttpClient {

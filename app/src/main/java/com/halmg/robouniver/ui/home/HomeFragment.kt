@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import com.halmg.robouniver.R
 import com.halmg.robouniver.databinding.FragmentHomeBinding
+import com.halmg.robouniver.model.api.SessionManager
 
 class HomeFragment : Fragment() {
 
@@ -23,21 +24,20 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
+
     ): View {
         val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        val sessionManager = SessionManager(requireContext())
         val headerV: TextView = binding.headerHome
-        homeViewModel.header.observe(viewLifecycleOwner) {
-            headerV.text = it
-        }
+        headerV.text = sessionManager.fetchTeacherName()
+
         val textV: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textV.text = it
-        }
+        textV.text = "Здесь должна быть должность"
 
         val layoutShedule: LinearLayout = binding.layoutShedule
         layoutShedule.setOnClickListener { v ->

@@ -41,7 +41,17 @@
     <fragment
         android:id="@+id/manualFragment"
         android:name="com.halmg.robouniver.ui.home.manual.ManualFragment"
-        android:label="ManualFragment" />
+        android:label="ManualFragment" >
+        <action
+            android:id="@+id/action_manualFragment_to_navigation_journal"
+            app:destination="@id/navigation_journal" />
+        <action
+            android:id="@+id/action_manualFragment_to_navigation_report"
+            app:destination="@id/navigation_report" />
+        <action
+            android:id="@+id/action_manualFragment_to_navigation_homework"
+            app:destination="@id/navigation_homework" />
+    </fragment>
     <fragment
         android:id="@+id/sheduleFragment"
         android:name="com.halmg.robouniver.ui.home.shedule.SheduleFragment"

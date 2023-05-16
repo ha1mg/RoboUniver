@@ -17,46 +17,23 @@ import retrofit2.Response
 
 
 class LoginActivity : AppCompatActivity() {
-    lateinit var login: EditText
-    lateinit var password: EditText
-    lateinit var btn_login: Button
+    private lateinit var login: EditText
+    private lateinit var password: EditText
+    private lateinit var btnLogin: Button
     private lateinit var sessionManager: SessionManager
-    private lateinit var authClient: ApiClient
+    private lateinit var apiClient: ApiClient
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-//        auth = Firebase.auth
-//        login = findViewById(R.id.email_login)
-//        password = findViewById(R.id.password_login)
-//        btn_login = findViewById(R.id.btn_login)
-//        btn_login.setOnClickListener {
-//            if (login.getText().toString().isEmpty() || login.getText().toString().isEmpty()){
-//                Toast.makeText(this, "Fields cannot be empty", Toast.LENGTH_SHORT).show()
-//            } else {
-//                auth.signInWithEmailAndPassword(login.getText().toString(), password.getText().toString()).addOnCompleteListener { task ->
-//                    if (!task.isSuccessful) Toast.makeText(
-//                        applicationContext,
-//                        "доступ запрещён",
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                    else {
-//                        //Toast.makeText(applicationContext, "Добро пожаловать", Toast.LENGTH_SHORT)
-//                            //.show()
-//                        updateUI()
-//                    }
-//                }
-//            }
-//        }
-
         login = findViewById(R.id.email_login)
         password = findViewById(R.id.password_login)
-        btn_login = findViewById(R.id.btn_login)
+        btnLogin = findViewById(R.id.btn_login)
 
-        authClient = ApiClient()
+        apiClient = ApiClient()
         sessionManager = SessionManager(this)
-        btn_login.setOnClickListener {
-            authClient.getAuthController().signin(
+        btnLogin.setOnClickListener {
+            apiClient.getApiService(this).signin(
                 SignInRequest(
                     login = login.text.toString(),
                     password = password.text.toString()
@@ -65,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
             .enqueue(object : Callback<SigninResponse> {
                 override fun onFailure(call: Call<SigninResponse>, t: Throwable) {
                     Toast.makeText(
-                        applicationContext, "ошибка", Toast.LENGTH_SHORT
+                        applicationContext, "ошибка сервера", Toast.LENGTH_SHORT
                     ).show()
                     Log.d("Retrofit", t.toString())
                 }
@@ -75,9 +52,9 @@ class LoginActivity : AppCompatActivity() {
                     response: Response<SigninResponse>
                 ) {
                     val signinResponse = response.body()
-                    Log.d("Retrofit", signinResponse?.statusCode.toString())
-                    if (signinResponse?.statusCode == 200 && signinResponse?.name != null) { //&& loginResponse.user != null
+                    if (signinResponse?.statusCode == 200) { //&& loginResponse.user != null
                         sessionManager.saveAuthToken(signinResponse.token)
+                        sessionManager.saveTeacherName(signinResponse.name)
                         updateUI()
                     } else {
                         Toast.makeText(
@@ -86,6 +63,22 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             })
+//            authClient.getApiService(this).secret(
+//                token = "Bearer ${sessionManager.fetchAuthToken()}"
+//            ).enqueue(object : Callback<SecretResponse> {
+//                override fun onFailure(call: Call<SecretResponse>, t: Throwable) {
+//                    Log.d("Retrofit", t.toString())
+//                }
+//
+//                override fun onResponse(
+//                    call: Call<SecretResponse>, response: Response<SecretResponse>)
+//                {
+//                    val signinResponse = response.body()
+//                    if (signinResponse?.statusCode == 200) {
+//                        sessionManager.saveTeacherId(signinResponse.id)
+//                    }
+//                }
+//            })
         }
     }
 
