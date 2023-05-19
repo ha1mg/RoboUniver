@@ -1,9 +1,11 @@
 package com.halmg.robouniver.model.api
 
-import kotlinx.serialization.Serializable
+import com.google.gson.annotations.SerializedName
 
-@Serializable
+
 data class VenueResponse(
+    @SerializedName("statusCode")
     val statusCode: Int,
+    @SerializedName("venues")
     val venues: List<Venue>
 )

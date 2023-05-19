@@ -36,14 +36,4 @@ class SessionManager (context: Context) {
     fun fetchTeacherName(): String? {
         return prefs.getString(TEACHER_NAME, null)
     }
-
-    fun saveTeacherId(id: Int) {
-        val editor = prefs.edit()
-        editor.putInt(TEACHER_ID, id)
-        editor.apply()
-    }
-
-    fun fetchTeacherId(): Int {
-        return prefs.getInt(TEACHER_ID, -1)
-    }
 }

@@ -63,29 +63,11 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
             })
-//            authClient.getApiService(this).secret(
-//                token = "Bearer ${sessionManager.fetchAuthToken()}"
-//            ).enqueue(object : Callback<SecretResponse> {
-//                override fun onFailure(call: Call<SecretResponse>, t: Throwable) {
-//                    Log.d("Retrofit", t.toString())
-//                }
-//
-//                override fun onResponse(
-//                    call: Call<SecretResponse>, response: Response<SecretResponse>)
-//                {
-//                    val signinResponse = response.body()
-//                    if (signinResponse?.statusCode == 200) {
-//                        sessionManager.saveTeacherId(signinResponse.id)
-//                    }
-//                }
-//            })
         }
     }
 
     private fun updateUI() {
-        //val user = auth.currentUser
         val intent = Intent(this, MainActivity::class.java)
-        //intent.putExtra("user", user!!.email)
         startActivity(intent)
     }
 }

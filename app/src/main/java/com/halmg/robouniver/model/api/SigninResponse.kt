@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SigninResponse(
-    var statusCode: Int,
-    var token: String,
-    var name: String
+    val statusCode: Int,
+    val token: String,
+    val name: String
 )

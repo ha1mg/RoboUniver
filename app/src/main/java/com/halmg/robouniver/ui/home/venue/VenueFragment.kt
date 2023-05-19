@@ -11,8 +11,9 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
-import com.halmg.robouniver.MainActivity
+import androidx.lifecycle.Observer
 import com.halmg.robouniver.databinding.FragmentVenueBinding
+
 
 
 class VenueFragment : Fragment() {
@@ -22,7 +23,6 @@ class VenueFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -32,35 +32,30 @@ class VenueFragment : Fragment() {
         _binding = FragmentVenueBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val listVenues = (activity as MainActivity).getVenues()
-        val editList: List<String> = listVenues.map{ it.name }
-
-        val venueHeader: TextView = binding.venueHeader
         val venueDiscription: TextView = binding.venueDiscription
-        val spinner: Spinner = binding.spinner
-        if (spinner != null) {
+        val venueAddress: TextView = binding.address
+
+        venueViewModel.getVenues()
+        venueViewModel.venuesData.observe(viewLifecycleOwner, Observer { data ->
+            val venueNames: List<String> = data.map{ it.name }
+            val spinner: Spinner = binding.spinner
             val adapter = ArrayAdapter(requireContext(),
-                R.layout.simple_spinner_item, editList)
+                R.layout.simple_spinner_item, venueNames)
             spinner.adapter = adapter
 
             spinner.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(parent: AdapterView<*>,
                                             view: View, position: Int, id: Long) {
-                    venueHeader.text = listVenues[position].name
-                    venueDiscription.text = listVenues[position].address
+                    venueDiscription.text = data.get(position).discription
+                    venueAddress.text = data.get(position).address
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     TODO("Not yet implemented")
                 }
             }
-
-        }
-//        val textView: TextView = binding.textDashboard
-//        homeViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        })
         return root
     }
 

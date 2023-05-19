@@ -1,10 +1,10 @@
 package com.halmg.robouniver.model.api
 
-import com.google.gson.annotations.SerializedName
+import kotlinx.serialization.Serializable
 
+
+@Serializable
 data class SecretResponse(
-    @SerializedName("statusCode")
-    var statusCode: Int,
-    @SerializedName("id")
-    var id: Int
+    val statusCode: Int,
+    val id: Int
 )

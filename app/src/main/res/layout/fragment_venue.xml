@@ -10,27 +10,28 @@
         android:id="@+id/venue_header"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/inter"
         android:gravity="center_vertical"
         android:letterSpacing="0.02"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:text="Методические указания"
+        android:text="Информация о площадках"
         android:textColor="#001d48"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="18dp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +45,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="18dp"
         android:text="Адресс"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
@@ -56,6 +58,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="18dp"
         android:text="Описание"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address" />
