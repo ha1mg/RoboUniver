@@ -14,7 +14,6 @@ class SessionManager (context: Context) {
     companion object {
         const val TEACHER_TOKEN = "user_token"
         const val TEACHER_NAME = "teacher_name"
-        const val TEACHER_ID = "teacher_id"
     }
 
     fun saveAuthToken(token: String) {

@@ -8,6 +8,6 @@ interface ApiController {
     @POST("signin")
     fun signin(@Body request: SignInRequest): Call<SigninResponse>
 
-    @GET("venue")
+    @GET("venues")
     fun getVenues(): Call<VenueResponse>
 }

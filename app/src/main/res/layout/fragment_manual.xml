@@ -6,49 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.manual.ManualFragment">
 
-    <!--    <androidx.appcompat.widget.Toolbar-->
-    <!--        android:id="@+id/toolbar"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="509dp"-->
-    <!--        android:background="@color/white"-->
-    <!--        android:minHeight="?attr/actionBarSize"-->
-    <!--        android:theme="?attr/actionBarTheme"-->
-    <!--        app:layout_constraintBottom_toTopOf="@+id/button"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-
     <TextView
-        android:id="@+id/header_manual"
-        android:layout_width="wrap_content"
+        android:id="@+id/manual_header"
+        android:layout_width="395dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="550dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/inter"
+        android:gravity="center_vertical"
         android:letterSpacing="0.02"
+        android:orientation="horizontal"
+        android:padding="8dp"
         android:text="Методические указания"
         android:textColor="#001d48"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar" -->
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="18dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manual_header" />
 
     <TextView
-        android:id="@+id/text_manual"
+        android:id="@+id/manual_discription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/button"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/header_manual" />
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="18dp"
+        android:text="Описание"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+
+    <!--        app:layout_constraintTop_toBottomOf="@+id/toolbar" -->
 
     <Button
         android:id="@+id/button"
@@ -65,7 +68,6 @@
         android:text="Скачать методичку .PDF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_manual" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@ import com.halmg.robouniver.ui.journal.JournalViewModel
 
 class ReportFragment : Fragment() {
 
-    private var _binding: FragmentJournalBinding? = null
+    private var _binding: FragmentReportBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,15 +26,15 @@ class ReportFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val journalViewModel =
-            ViewModelProvider(this).get(JournalViewModel::class.java)
+            ViewModelProvider(this).get(ReportViewModel::class.java)
 
-        _binding = FragmentJournalBinding.inflate(inflater, container, false)
+        _binding = FragmentReportBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textJournal
-//        journalViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        val textView: TextView = binding.textDashboard
+        journalViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
+        }
         return root
     }
 

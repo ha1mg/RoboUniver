@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
             .enqueue(object : Callback<SigninResponse> {
                 override fun onFailure(call: Call<SigninResponse>, t: Throwable) {
                     Toast.makeText(
-                        applicationContext, "ошибка сервера", Toast.LENGTH_SHORT
+                        applicationContext, "Проблема с подключением", Toast.LENGTH_SHORT
                     ).show()
                     Log.d("Retrofit", t.toString())
                 }
@@ -58,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
                         updateUI()
                     } else {
                         Toast.makeText(
-                            applicationContext, "доступ запрещён", Toast.LENGTH_SHORT
+                            applicationContext, "Неправильный логин или пароль", Toast.LENGTH_SHORT
                         ).show()
                     }
                 }

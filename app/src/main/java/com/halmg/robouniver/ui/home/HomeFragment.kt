@@ -36,13 +36,15 @@ class HomeFragment : Fragment() {
         val headerV: TextView = binding.headerHome
         headerV.text = sessionManager.fetchTeacherName()
 
-        val textV: TextView = binding.textHome
-        textV.text = "Здесь должна быть должность"
-
-        val layoutShedule: LinearLayout = binding.layoutShedule
-        layoutShedule.setOnClickListener { v ->
-            v.findNavController().navigate(R.id.action_navigation_home_to_sheduleFragment)
+        val textView: TextView = binding.textHome
+        homeViewModel.text.observe(viewLifecycleOwner) {
+            textView.text = it
         }
+
+//        val layoutShedule: LinearLayout = binding.layoutShedule
+//        layoutShedule.setOnClickListener { v ->
+//            v.findNavController().navigate(R.id.action_navigation_home_to_sheduleFragment)
+//        }
 
         val layoutManual: LinearLayout = binding.layoutManual
         layoutManual.setOnClickListener { v ->

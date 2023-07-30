@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class HomeworkViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "This is homework Fragment"
+        value = "ЗДЕСЬ БУДЕТ ЭКРАН С ДОМАШНИМИ РАБОТАМИ УЧЕНИКОВ"
     }
     val text: LiveData<String> = _text
 }

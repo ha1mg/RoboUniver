@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class SheduleViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is shedule Fragment"
+        value = "ЗДЕСЬ БУДЕ РАСПИСАНИЕ ПРЕПОДАВАТЕЛЯ"
     }
     val text: LiveData<String> = _text
 }

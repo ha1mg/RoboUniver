@@ -7,3 +7,4 @@ data class SignInRequest(
     val login: String,
     val password: String,
 )
+
