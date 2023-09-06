@@ -1,6 +1,7 @@
-package com.halmg.robouniver.model.api
+package com.halmg.robouniver.data.api
 
 import android.content.Context
+import com.halmg.robouniver.data.repository.SessionManager
 import okhttp3.Interceptor
 import okhttp3.Response
 

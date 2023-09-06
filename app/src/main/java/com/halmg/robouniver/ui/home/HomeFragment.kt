@@ -11,7 +11,7 @@ import android.widget.TextView
 import androidx.navigation.findNavController
 import com.halmg.robouniver.R
 import com.halmg.robouniver.databinding.FragmentHomeBinding
-import com.halmg.robouniver.model.api.SessionManager
+import com.halmg.robouniver.data.repository.SessionManager
 
 class HomeFragment : Fragment() {
 
@@ -24,8 +24,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
-
+        savedInstanceState: Bundle?
     ): View {
         val homeViewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
@@ -33,32 +32,32 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val sessionManager = SessionManager(requireContext())
-        val headerV: TextView = binding.headerHome
-        headerV.text = sessionManager.fetchTeacherName()
+        val header: TextView = binding.headerHome
+        header.text = sessionManager.fetchTeacherName()
 
-        val textView: TextView = binding.textHome
+        val textView: TextView = binding.teacherRang
         homeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
 
-//        val layoutShedule: LinearLayout = binding.layoutShedule
-//        layoutShedule.setOnClickListener { v ->
-//            v.findNavController().navigate(R.id.action_navigation_home_to_sheduleFragment)
-//        }
+        val layoutShedule: LinearLayout = binding.layoutShedule
+        layoutShedule.setOnClickListener { v ->
+            v.findNavController().navigate(R.id.action_homeFragment_to_sheduleFragment)
+        }
 
         val layoutManual: LinearLayout = binding.layoutManual
         layoutManual.setOnClickListener { v ->
-            v.findNavController().navigate(R.id.action_navigation_home_to_manualFragment)
+            v.findNavController().navigate(R.id.action_homeFragment_to_manualFragment)
         }
 
         val layoutVenue: LinearLayout = binding.layoutVenue
         layoutVenue.setOnClickListener { v ->
-            v.findNavController().navigate(R.id.action_navigation_home_to_venueFragment)
+            v.findNavController().navigate(R.id.action_homeFragment_to_venueFragment)
         }
 
         val layoutWages: LinearLayout = binding.layoutWages
         layoutWages.setOnClickListener { v ->
-            v.findNavController().navigate(R.id.action_navigation_home_to_wagesFragment)
+            v.findNavController().navigate(R.id.action_homeFragment_to_wagesFragment)
         }
 
         return root

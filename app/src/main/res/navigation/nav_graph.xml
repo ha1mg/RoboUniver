@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.halmg.robouniver.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_manual"
+        android:label="@string/home">
+        <action
+            android:id="@+id/action_homeFragment_to_sheduleFragment"
+            app:destination="@id/sheduleFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_wagesFragment"
+            app:destination="@id/wagesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_venueFragment"
+            app:destination="@id/venueFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_manualFragment"
+            app:destination="@id/manualFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/journalFragment"
+        android:name="com.halmg.robouniver.ui.journal.JournalFragment"
+        tools:layout="@layout/fragment_journal"
+        android:label="@string/journal"/>
+    <fragment
+        android:id="@+id/homeworkFragment"
+        android:name="com.halmg.robouniver.ui.homework.HomeworkFragment"
+        tools:layout="@layout/fragment_homework"
+        android:label="@string/homework"/>
+    <fragment
+        android:id="@+id/reportFragment"
+        android:name="com.halmg.robouniver.ui.report.ReportFragment"
+        tools:layout="@layout/fragment_report"
+        android:label="@string/report"/>
+    <fragment
+        android:id="@+id/manualFragment"
+        android:name="com.halmg.robouniver.ui.home.manual.ManualFragment"
+        tools:layout="@layout/fragment_manual"
+        android:label="Методические указания" >
+        <action
+            android:id="@+id/action_manualFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sheduleFragment"
+        android:name="com.halmg.robouniver.ui.home.shedule.SheduleFragment"
+        android:label="Расписание"
+        tools:layout="@layout/fragment_shedule" >
+        <action
+            android:id="@+id/action_sheduleFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/venueFragment"
+        android:name="com.halmg.robouniver.ui.home.venue.VenueFragment"
+        android:label="Площадки"
+        tools:layout="@layout/fragment_venue" >
+        <action
+            android:id="@+id/action_venueFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wagesFragment"
+        android:name="com.halmg.robouniver.ui.home.wages.WagesFragment"
+        android:label="Зарплата"
+        tools:layout="@layout/fragment_wages" >
+        <action
+            android:id="@+id/action_wagesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

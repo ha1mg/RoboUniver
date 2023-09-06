@@ -37,6 +37,7 @@ class ManualFragment : Fragment() {
 
         val adapter = ArrayAdapter(requireContext(),
             android.R.layout.simple_spinner_item, level)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
 
         spinner.onItemSelectedListener = object :

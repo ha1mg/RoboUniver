@@ -2,26 +2,25 @@ package com.halmg.robouniver
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.halmg.robouniver.model.api.ApiClient
-import com.halmg.robouniver.model.api.SigninResponse
-import com.halmg.robouniver.model.api.SessionManager
-import com.halmg.robouniver.model.api.SignInRequest
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.halmg.robouniver.domain.usecase.LogInUseCase
+import com.halmg.robouniver.data.repository.TeacherRepositoryImpl
+import com.halmg.robouniver.domain.models.LogInParam
+import com.halmg.robouniver.domain.models.LogInResponse
 
 
 class LoginActivity : AppCompatActivity() {
+
+    private val teacherRepository = TeacherRepositoryImpl(context = applicationContext)
+    private val logInUseCase = LogInUseCase(teacherRepository = teacherRepository)
+
     private lateinit var login: EditText
     private lateinit var password: EditText
     private lateinit var btnLogin: Button
-    private lateinit var sessionManager: SessionManager
-    private lateinit var apiClient: ApiClient
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -30,39 +29,25 @@ class LoginActivity : AppCompatActivity() {
         password = findViewById(R.id.password_login)
         btnLogin = findViewById(R.id.btn_login)
 
-        apiClient = ApiClient()
-        sessionManager = SessionManager(this)
         btnLogin.setOnClickListener {
-            apiClient.getApiService(this).signin(
-                SignInRequest(
-                    login = login.text.toString(),
-                    password = password.text.toString()
-                )
-            )
-            .enqueue(object : Callback<SigninResponse> {
-                override fun onFailure(call: Call<SigninResponse>, t: Throwable) {
-                    Toast.makeText(
-                        applicationContext, "Проблема с подключением", Toast.LENGTH_SHORT
-                    ).show()
-                    Log.d("Retrofit", t.toString())
-                }
+            when (logInUseCase.execute(param = LogInParam(login = login.text.toString(), password = password.text.toString()))) {
+                LogInResponse(statusCode = "EMPTY_LOGIN") -> Toast.makeText(
+                    applicationContext, "Введите логин", Toast.LENGTH_SHORT
+                ).show()
+                LogInResponse(statusCode = "EMPTY_PASS") -> Toast.makeText(
+                    applicationContext, "Введите пароль", Toast.LENGTH_SHORT
+                ).show()
+                LogInResponse(statusCode = "503") -> Toast.makeText(
+                    applicationContext, "Проблема с подключением", Toast.LENGTH_SHORT
+                ).show()
+                LogInResponse(statusCode = "403") -> Toast.makeText(
+                    applicationContext, "Неправильный логин или пароль", Toast.LENGTH_SHORT
+                ).show()
+                LogInResponse(statusCode = "200") -> updateUI()
+            }
+            if (logInUseCase.execute(param = LogInParam(login = login.text.toString(), password = password.text.toString()) !=  LogInResponse(statusCode = "200", description = "OK")) {
 
-                override fun onResponse(
-                    call: Call<SigninResponse>,
-                    response: Response<SigninResponse>
-                ) {
-                    val signinResponse = response.body()
-                    if (signinResponse?.statusCode == 200) { //&& loginResponse.user != null
-                        sessionManager.saveAuthToken(signinResponse.token)
-                        sessionManager.saveTeacherName(signinResponse.name)
-                        updateUI()
-                    } else {
-                        Toast.makeText(
-                            applicationContext, "Неправильный логин или пароль", Toast.LENGTH_SHORT
-                        ).show()
-                    }
                 }
-            })
         }
     }
 

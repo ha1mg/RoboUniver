@@ -9,4 +9,8 @@
     <string name="journal">Журнал</string>
     <string name="home">Главная</string>
     <string name="student_name">Фамилия Имя Отчество</string>
+    <string name="emty_teacher_name">Фамилия И.О.</string>
+    <string name="teacher_rang">Должность</string>
+    <string name="shedule_header">Открыть расписание</string>
+    <string name="shedule_discription">Узнать расписание занятий</string>
 </resources>

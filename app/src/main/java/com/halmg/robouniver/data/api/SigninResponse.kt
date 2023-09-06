@@ -1,4 +1,4 @@
-package com.halmg.robouniver.model.api
+package com.halmg.robouniver.data.api
 
 import kotlinx.serialization.Serializable
 

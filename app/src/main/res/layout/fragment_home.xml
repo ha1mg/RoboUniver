@@ -17,7 +17,7 @@
         android:gravity="center_horizontal"
         android:letterSpacing="0.01"
         android:lineSpacingExtra="7sp"
-        android:text="Фамилия И.О."
+        android:text="@string/emty_teacher_name"
         android:textColor="#2051e9"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -25,70 +25,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_home"
+        android:id="@+id/teacher_rang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/inter"
         android:letterSpacing="0.02"
-        android:text="Должность"
+        android:text="@string/teacher_rang"
         android:textColor="#001d48"
         android:textSize="16sp"
         android:textStyle="normal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header_home" />
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/layoutShedule"-->
-<!--        android:layout_width="395dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="28dp"-->
-<!--        android:background="#ffffff"-->
-<!--        android:gravity="center_vertical"-->
-<!--        android:orientation="horizontal"-->
-<!--        android:paddingHorizontal="12dp"-->
-<!--        android:paddingVertical="16dp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/text_home">-->
-
-<!--        <LinearLayout-->
-<!--            android:layout_width="0dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_weight="1"-->
-<!--            android:orientation="vertical">-->
-
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:letterSpacing="0.02"-->
-<!--                android:textColor="#001d48"-->
-<!--                android:textSize="18sp"-->
-<!--                android:textStyle="normal"-->
-<!--                android:text="Открыть расписание" />-->
-
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:letterSpacing="0.03"-->
-<!--                android:textColor="#001d48"-->
-<!--                android:textSize="14sp"-->
-<!--                android:textStyle="normal"-->
-<!--                android:text="Узнать расписание занятий" />-->
-<!--        </LinearLayout>-->
-
-<!--        <ImageView-->
-<!--            android:layout_width="24dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />-->
-<!--    </LinearLayout>-->
-
     <LinearLayout
-        android:id="@+id/layoutManual"
+        android:id="@+id/layoutShedule"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="28dp"
         android:background="#ffffff"
         android:gravity="center_vertical"
         android:orientation="horizontal"
@@ -96,7 +51,7 @@
         android:paddingVertical="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_home">
+        app:layout_constraintTop_toBottomOf="@+id/teacher_rang">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -111,17 +66,60 @@
                 android:textColor="#001d48"
                 android:textSize="18sp"
                 android:textStyle="normal"
-                android:text="Открыть методические указания" />
+                android:text="@string/shedule_header" />
 
             <TextView
-                android:id="@+id/text2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:letterSpacing="0.03"
                 android:textColor="#001d48"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                android:text="Посмотреть описание занятий и приложенные к ним файлы" />
+                android:text="@string/shedule_discription" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:srcCompat="@drawable/baseline_arrow_forward_ios_24" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutManual"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp"
+        android:paddingVertical="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutShedule">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.02"
+                android:text="Методические указания"
+                android:textColor="#001d48"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:letterSpacing="0.03"
+                android:text="Посмотреть описание занятий и приложенные к ним файлы"
+                android:textColor="#001d48"
+                android:textSize="14sp"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <ImageView
@@ -212,7 +210,7 @@
                 android:textColor="#001d48"
                 android:textSize="14sp"
                 android:textStyle="normal"
-                android:text="Сформировать отчет по заработной плате по месяцам" />
+                android:text="Сформировать отчет по заработной плате" />
         </LinearLayout>
 
         <ImageView
