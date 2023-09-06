@@ -17,7 +17,7 @@ class LogInUseCase(private val teacherRepository: TeacherRepository) {
         } else if (teacherRepository.getTeacher(loginParam = param) == LogInResponse(statusCode = "403")){
             LogInResponse(statusCode = "403", description = "Неправильный логин или пароль")
         } else {
-            LogInResponse(statusCode = "200", description = "OK")
+            LogInResponse(statusCode = "200")
         }
     }
 }

@@ -14,8 +14,9 @@ import com.halmg.robouniver.domain.models.LogInResponse
 
 class LoginActivity : AppCompatActivity() {
 
-    private val teacherRepository = TeacherRepositoryImpl(context = applicationContext)
+    private val teacherRepository = TeacherRepositoryImpl(this)
     private val logInUseCase = LogInUseCase(teacherRepository = teacherRepository)
+    private lateinit var logInResponse: LogInResponse
 
     private lateinit var login: EditText
     private lateinit var password: EditText
@@ -30,24 +31,14 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById(R.id.btn_login)
 
         btnLogin.setOnClickListener {
-            when (logInUseCase.execute(param = LogInParam(login = login.text.toString(), password = password.text.toString()))) {
-                LogInResponse(statusCode = "EMPTY_LOGIN") -> Toast.makeText(
-                    applicationContext, "Введите логин", Toast.LENGTH_SHORT
+            logInResponse = logInUseCase.execute(param = LogInParam(login = login.text.toString(), password = password.text.toString()))
+            if (logInResponse !=  LogInResponse(statusCode = "200")) {
+                Toast.makeText(
+                    applicationContext, logInResponse.description, Toast.LENGTH_SHORT
                 ).show()
-                LogInResponse(statusCode = "EMPTY_PASS") -> Toast.makeText(
-                    applicationContext, "Введите пароль", Toast.LENGTH_SHORT
-                ).show()
-                LogInResponse(statusCode = "503") -> Toast.makeText(
-                    applicationContext, "Проблема с подключением", Toast.LENGTH_SHORT
-                ).show()
-                LogInResponse(statusCode = "403") -> Toast.makeText(
-                    applicationContext, "Неправильный логин или пароль", Toast.LENGTH_SHORT
-                ).show()
-                LogInResponse(statusCode = "200") -> updateUI()
+            } else {
+                updateUI()
             }
-            if (logInUseCase.execute(param = LogInParam(login = login.text.toString(), password = password.text.toString()) !=  LogInResponse(statusCode = "200", description = "OK")) {
-
-                }
         }
     }
 

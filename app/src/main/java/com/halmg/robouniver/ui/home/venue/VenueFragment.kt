@@ -63,7 +63,7 @@ class VenueFragment : Fragment() {
         })
 
         binding.address.setOnClickListener {
-            val address =
+//            val address =
             val geoUriString = "geo:0,0?q=москва+театр+кошек&z=8"
             val geoUri: Uri = Uri.parse(geoUriString)
             val mapIntent = Intent(Intent.ACTION_VIEW, geoUri)
